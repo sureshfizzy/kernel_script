@@ -9,7 +9,7 @@ KERNEL_DEFCONFIG=sweet_defconfig
 date=$(date +"%Y-%m-%d-%H%M")
 export ARCH=arm64
 export SUBARCH=arm64
-export zipname="Meraki-Sweet-${date}.zip"
+export zipname="MerakiKernel-sweet-${date}.zip"
 
 # Tool Chain
 echo -e "$green << cloning gcc from arter >> \n $white"

@@ -78,3 +78,8 @@ if [ -f "out/arch/arm64/boot/Image.gz" ] && [ -f "out/arch/arm64/boot/dtbo.img" 
 else
 	echo -e "\n Compilation Failed!"
 fi
+
+# Upload to Gdrive
+echo -e "$green << Uploading to Gdrive>> \n $white"
+gdrive upload ${zipname}
+echo -e "$green << Uploading Done>> \n $white"

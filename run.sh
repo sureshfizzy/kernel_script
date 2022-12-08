@@ -2,14 +2,14 @@
 #set -e
 # Clone kernel
 echo -e "$green << cloning kernel >> \n $white"
-git clone --depth=1 https://github.com/Sm6150-Sweet/kernel_xiaomi_sm6150 meraki
-cd meraki
+git clone --depth=1 -b 404 https://github.com/sureshfizzy/kernel_msm-4.14 Pikachu
+cd Pikachu
 
-KERNEL_DEFCONFIG=sweet_defconfig
+KERNEL_DEFCONFIG=vendor/sweet_user_defconfig
 date=$(date +"%Y-%m-%d-%H%M")
 export ARCH=arm64
 export SUBARCH=arm64
-export zipname="MerakiKernel-sweet-${date}.zip"
+export zipname="Pikachu-sweet-${date}.zip"
 
 # Tool Chain
 echo -e "$green << cloning gcc from arter >> \n $white"
@@ -60,8 +60,8 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
 
 find out/arch/arm64/boot/dts/ -name '*.dtb' -exec cat {} + >out/arch/arm64/boot/dtb
 if [ -f "out/arch/arm64/boot/Image.gz" ] && [ -f "out/arch/arm64/boot/dtbo.img" ] && [ -f "out/arch/arm64/boot/dtb" ]; then
-	echo "------ Finishing  Build ------"
-	git clone -q https://github.com/Sm6150-Sweet/AnyKernel3
+	echo "------ Fiishing  Build ------"
+	git clone -q https://github.com/sureshfizzy/AnyKernel3.git
 	cp out/arch/arm64/boot/Image.gz AnyKernel3
 	cp out/arch/arm64/boot/dtb AnyKernel3
 	cp out/arch/arm64/boot/dtbo.img AnyKernel3
